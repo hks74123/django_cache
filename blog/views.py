@@ -26,7 +26,9 @@ def get_blog_with_cache():
 @cache_page(CACHE_TTL)
 def blog_view(request):
     blog = get_blog_with_cache()
-    print(blog)
+    blog_name = []
+    for b in blog:
+        blog_name.append(b.name) 
     return HttpResponse(
-        blog
+        blog_name
     )
